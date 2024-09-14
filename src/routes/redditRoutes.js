@@ -1,8 +1,12 @@
-import express from 'express';
-import { processRedditData } from '../controllers/redditController.js';
+// src/controllers/redditController.js
 
-const router = express.Router();
-
-router.post('/process', processRedditData);
-
-export default router;  // Change this line to export default
+export const processRedditData = (req, res) => {
+    const { subreddits, userId } = req.body;
+    if (!subreddits || !userId) {
+      return res.status(400).json({ error: 'Missing subreddits or userId' });
+    }
+    
+    // Process data here (e.g., interact with a database, perform calculations, etc.)
+    res.json({ message: `Received subreddits: ${subreddits}, userId: ${userId}` });
+  };
+  
