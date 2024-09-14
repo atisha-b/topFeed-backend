@@ -6,7 +6,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8081;
 
-app.use('/static', express.static(path.join(__dirname, 'public')));
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
