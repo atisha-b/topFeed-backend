@@ -1,0 +1,18 @@
+branch-defaults:
+  main:
+    environment: topFeed-backend2-env
+    group_suffix: null
+global:
+  application_name: topFeed-backend2
+  branch: null
+  default_ec2_keyname: aws-eb
+  default_platform: Node.js 20 running on 64bit Amazon Linux 2023
+  default_region: us-east-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: git
+  workspace_type: Application
