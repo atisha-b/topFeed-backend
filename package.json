@@ -13,9 +13,14 @@
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-lambda": "^3.650.0",
+    "axios": "^1.7.7",
+    "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "firebase": "^9.x.x"
+    "firebase": "^9.x.x",
+    "firebase-admin": "^12.5.0",
+    "node-html-parser": "^6.1.13",
+    "openai": "^4.61.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

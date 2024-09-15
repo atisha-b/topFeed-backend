@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import redditRoutes from './src/routes/redditRoutes.js';
+import feedRoutes from './src/routes/feedRoute.js';
 
 dotenv.config();
 
@@ -12,7 +13,7 @@ app.use(express.json());
 
 // Mount the redditRoutes module at the /api/reddit path
 app.use('/api/reddit', redditRoutes);
-
+app.use('/api/feed', feedRoutes);
 // Basic route for testing
 app.get('/', (req, res) => {
   res.send('Hello World!');
