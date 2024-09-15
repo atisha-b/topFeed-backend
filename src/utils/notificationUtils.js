@@ -1,17 +1,34 @@
+import admin from 'firebase-admin';
+import axios from 'axios';
+
+// Fetch user notification settings from Firestore
 export async function getUserNotificationSettings(userId) {
-  // Implement the logic to fetch user notification settings from Firestore
-  console.log("Fetching notification settings for user:", userId);
-  // Return mock data for now
-  return {
-    istelegram: true,
-    isActive: true,
-    reddit: true,
-    telegramUserId: 'mockTelegramUserId'
-  };
+  try {
+    const docRef = admin.firestore().doc(`notifications/${userId}`);
+    const docSnap = await docRef.get();
+    if (docSnap.exists) {
+      return docSnap.data();
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching user notification settings:", error);
+    return null;
+  }
 }
 
-export async function sendTelegramMessage(telegramUserId, message) {
-  // Implement the logic to send a Telegram message
-  console.log("Sending Telegram message to:", telegramUserId);
-  console.log("Message:", message);
+// Send a Telegram message via Telegram API
+export async function sendTelegramMessage(telegramAccount, message) {
+  try {
+    const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+    const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+    const response = await axios.post(url, {
+      chat_id: telegramAccount,
+      text: message,
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error sending Telegram message:", error);
+    throw new Error("Failed to send Telegram message");
+  }
 }
