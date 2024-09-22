@@ -16,3 +16,13 @@ global:
   repository: null
   sc: git
   workspace_type: Application
+
+option_settings:
+  aws:elb:listener:443:
+    ListenerProtocol: HTTPS
+    SSLCertificateId: arn:aws:acm:us-east-2:381492038614:certificate/ea213b43-bbce-455c-92b8-47d21d1b9937
+    InstancePort: 80
+  aws:elb:listener:80:
+    ListenerEnabled: true
+  aws:elasticbeanstalk:environment:
+    LoadBalancerType: application
