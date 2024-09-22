@@ -1,6 +1,6 @@
 branch-defaults:
   main:
-    environment: topFeed-backend2-env
+    environment: topFeed-recreate
     group_suffix: null
 global:
   application_name: topFeed-backend2
